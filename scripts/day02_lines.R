@@ -17,14 +17,15 @@ bbox_cont = ec %>%
 
 tm_shape(road, bbox = bbox_cont) +
   tm_lines(
-    col = "grey70",
-    alpha = 0.1, 
-    size = 0.001
+    col = "grey80",
+    alpha = 0.5, 
+    lwd = 0.4
   ) +
   tm_shape(rail) +
   tm_lines(
     col = "white",
-    alpha = 0.75
+    alpha = 0.8,
+    lwd = 1.8
   ) +
   tm_layout(bg.color = "black") +
   tm_credits(
