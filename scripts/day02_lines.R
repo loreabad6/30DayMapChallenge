@@ -14,10 +14,8 @@ bbox_cont = ec %>%
   mutate(area = st_area(geometry)) %>% 
   top_n(1) %>% 
   st_bbox()
-# 
-# tm_shape(ec, bbox = bbox_cont) +
-#   tm_fill(col = "#060606") +
-  tm_shape(road, bbox = bbox_cont) +
+
+tm_shape(road, bbox = bbox_cont) +
   tm_lines(
     col = "grey60",
     alpha = 0.1, 
