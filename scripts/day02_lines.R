@@ -17,7 +17,7 @@ bbox_cont = ec %>%
 
 tm_shape(road, bbox = bbox_cont) +
   tm_lines(
-    col = "grey60",
+    col = "grey70",
     alpha = 0.1, 
     size = 0.001
   ) +
