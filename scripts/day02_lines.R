@@ -19,7 +19,7 @@ bbox_cont = ec %>%
 #   tm_fill(col = "#060606") +
   tm_shape(road, bbox = bbox_cont) +
   tm_lines(
-    col = "grey70",
+    col = "grey60",
     alpha = 0.1, 
     size = 0.001
   ) +
