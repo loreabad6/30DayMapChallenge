@@ -1,9 +1,12 @@
 # #30DayMapChallenge
 
-## Day 1 - Points
+<center>
+## Day 1 - 2- 3: Points - Lines - Polygons
 
-![](maps/day01.png)
+<p float="left">
+  <img src="maps/day01.png" width="250" />
+  <img src="maps/day02.png" width="250" /> 
+  <img src="maps/day03.png" width="250" />
+</p>
 
-## Day 2 - Lines
-
-![](maps/day02.png)
+</center>
