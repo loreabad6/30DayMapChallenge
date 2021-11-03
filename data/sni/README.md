@@ -1,0 +1,1 @@
+https://sni.gob.ec/coberturas
