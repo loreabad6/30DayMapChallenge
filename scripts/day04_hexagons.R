@@ -94,7 +94,7 @@ ggplot() +
       margin = margin(b = -100)
     ),
     plot.caption = element_text(
-      hjust = 0.5,  margin = margin(t = -12),
+      hjust = 0.5,  margin = margin(t = -10),
       family = "sans", size = 7
     ),
     legend.position = c(0.8, 0.1),
@@ -105,3 +105,5 @@ ggplot() +
 
 ggsave(filename = "maps/day04.png",
        height = 20, width = 20, units = "cm")
+
+knitr::plot_crop("maps/day04.png")
