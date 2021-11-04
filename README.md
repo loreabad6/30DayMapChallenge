@@ -11,3 +11,6 @@
 </p>
 
 </center>
+
+**Day 4: Hexagons**
+![](maps/day04.png)
