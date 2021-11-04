@@ -60,7 +60,7 @@ ggplot() +
     geom_sf(
       data = morona_wf,
       aes(fill = distq),
-      color = NA, alpha = 0.9
+      color = NA, alpha = 0.95
     ),
     colour = "white",
     sigma = 15
