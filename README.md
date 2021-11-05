@@ -14,3 +14,6 @@
 
 **Day 4: Hexagons**
 ![](maps/day04.png)
+
+**Day 5: OpenStreetMap Data Challenge**
+![](maps/day05.png)
