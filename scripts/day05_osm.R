@@ -96,7 +96,6 @@ ggplot() +
     title = "OpenStreetMap contributors",
     subtitle = "Top 3 OSM contributors and their mapped nodes in Cuenca city center", 
     caption = "#30DayMapChallenge | Day 5: OpenStreetMap Data Challenge | Created by @loreabad6"
-    
   ) +
   theme_void() +
   theme(
