@@ -9,5 +9,5 @@
   <img src="maps/day06.png" width="260" height="260" /> 
   <img src="maps/day07.png" width="260" height="260" /> 
   <img src="maps/day08.png" width="260" height="260" /> 
-  <img src="maps/day08.png" width="130" height="260" /> 
+  <img src="maps/day09.png" width="130" height="260" /> 
 </p>
