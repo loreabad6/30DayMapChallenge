@@ -27,7 +27,7 @@ bbox_gal = c(
 
 tavg = worldclim_country(
   "Ecuador", "tavg",
-  path = here("data/wordclim/")
+  path = here("data/worldclim/")
 )
 
 tavg_stars = st_as_stars(tavg)
