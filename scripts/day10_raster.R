@@ -43,13 +43,13 @@ tavg_ec_named = tavg_ec %>%
 main = ggplot() +
   geom_stars(data = tavg_ec_named, downsample = c(0,0,0)) +
   scico::scale_fill_scico(
-    "Average temperature (°C) \n 1970-2000",
+    "Monthly average temperature (°C) \n 1970-2000",
     palette = "berlin", 
     n.breaks = 7,
     na.value = "transparent",
     guide = guide_colorbar(
       title.position = "top", title.hjust = 0.5, 
-      barheight = grid::unit(3, 'mm'), 
+      barheight = grid::unit(8, 'mm'), 
       barwidth = grid::unit(100, 'mm'), 
       ticks = FALSE
     )
@@ -66,12 +66,16 @@ main = ggplot() +
   ) +
   theme_void() +
   theme(
-    legend.position = "bottom",
+    legend.position = "top",
     legend.direction = "horizontal",
     text = element_text(size = 13, family = "Roboto", color = "#501802"),
-    plot.background = element_rect(fill = "white", color = NA),
+    plot.background = element_rect(
+      fill = "#faecde", color = NA
+    ),
+    plot.margin = margin(t = 3, b = 3, unit = "mm"),
     plot.caption = element_text(
-      hjust = 0.5, size = 9
+      hjust = 0.5, size = 9, 
+      margin = margin(t = 10, unit = "mm")
     )
   )
 
@@ -129,6 +133,4 @@ insets = 1:12 %>%
 final = main + insets
 
 ggsave(final, filename = "maps/day10.png",
-       height = 22, width = 25, units = "cm")
-
-knitr::plot_crop("maps/day10.png")
+       height = 22, width = 21, units = "cm")
