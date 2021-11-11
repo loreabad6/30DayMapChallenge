@@ -6,7 +6,9 @@ library(tmap)
 library(stars)
 library(rnaturalearth)
 library(tidyverse)
-ec = ne_countries(scale = "large",
+extrafont::loadfonts(device = "win")
+
+ec = ne_countries(scale = "medium",
                   country = "Ecuador",
                   returnclass = "sf")
 
@@ -18,10 +20,10 @@ bbox_cont = ec %>%
   st_bbox()
 
 bbox_gal = c(
-  xmin = -92.5,
-  xmax = -89.5,
-  ymin = -1.3,
-  ymax = 1.2
+  xmin = -91.7,
+  xmax = -89.2,
+  ymin = -1.4,
+  ymax = 0.3
 ) %>% st_bbox()
 
 tavg = worldclim_country(
@@ -31,10 +33,15 @@ tavg = worldclim_country(
 
 tavg_stars = st_as_stars(tavg)
 
-tavg_ec = tavg_stars[ec]
+tavg_ec = tavg_stars[ec] 
 
+tavg_ec_named = tavg_ec %>% 
+  st_set_dimensions(which = 'band',
+                    values = c("JAN", "FEB", "MAR", "APR", "MAY",
+                                 "JUN", "JUL", "AUG", "SEP", "OCT",
+                                 "NOV", "DEC"))
 main = ggplot() +
-  geom_stars(data = tavg_ec, downsample = c(10,10,0)) +
+  geom_stars(data = tavg_ec_named, downsample = c(0,0,0)) +
   scico::scale_fill_scico(
     "Average temperature (°C) \n 1970-2000",
     palette = "berlin", 
@@ -51,11 +58,21 @@ main = ggplot() +
     xlim = c(bbox_cont["xmin"], bbox_cont["xmax"]),
     ylim = c(bbox_cont["ymin"], bbox_cont["ymax"]),
   ) +
-  facet_wrap(~band) +
+  facet_wrap(
+    ~band, strip.position = "bottom"
+  ) +
+  labs(
+    caption = "#30DayMapChallenge | Day 10: Raster | Data: WorldClim | Created by @loreabad6"
+  ) +
   theme_void() +
   theme(
     legend.position = "bottom",
-    legend.direction = "horizontal"
+    legend.direction = "horizontal",
+    text = element_text(size = 13, family = "Roboto", color = "#501802"),
+    plot.background = element_rect(fill = "white", color = NA),
+    plot.caption = element_text(
+      hjust = 0.5, size = 9
+    )
   )
 
 ## A function to plot the inset 
@@ -63,7 +80,7 @@ get_inset = function(stars, month){
   p = ggplot() +
     geom_stars(
       data = stars[,,,month],
-      downsample = c(10,10,0),
+      downsample = c(0,0,0),
       show.legend = FALSE
     ) +
     scico::scale_fill_scico(
@@ -86,15 +103,32 @@ get_inset = function(stars, month){
   
   p
 }
-inset_plot = get_inset(tavg_ec) 
 
-main +
-  annotation_custom(
-    grob = ggplotGrob(inset_plot), 
+
+## This function allows us to specify which facet to annotate
+annotation_custom2 <- function (grob, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf, data) 
+{
+  layer(data = data, stat = StatIdentity, position = PositionIdentity, 
+        geom = ggplot2:::GeomCustomAnn,
+        inherit.aes = TRUE, params = list(grob = grob, 
+                                          xmin = xmin, xmax = xmax, 
+                                          ymin = ymin, ymax = ymax))
+}
+
+insets = 1:12 %>% 
+  purrr::map( ~annotation_custom2(
+    grob = ggplotGrob(get_inset(tavg_ec_named, .)),
+    data = data.frame(month = .),
     ymin = bbox_cont['ymin'],
     ymax = -2.5,
     xmin = -77.5,
     xmax = bbox_cont['xmax']
   )
+)
 
-main_plot + insets
+final = main + insets
+
+ggsave(final, filename = "maps/day10.png",
+       height = 22, width = 25, units = "cm")
+
+knitr::plot_crop("maps/day10.png")
