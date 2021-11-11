@@ -2,7 +2,6 @@
 
 library(geodata)
 library(here)
-library(tmap)
 library(stars)
 library(rnaturalearth)
 library(tidyverse)
