@@ -12,5 +12,5 @@
   <img src="maps/day09.png" width="130" height="260" /> 
   <img src="maps/day10.png" width="260" height="260" /> 
   <img src="maps/day11.png" width="390" height="260" /> 
-  <img src="maps/day11.png" width="240" height="260" /> 
+  <img src="maps/day12.png" width="240" height="260" /> 
 </p>
