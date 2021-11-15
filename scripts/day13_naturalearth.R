@@ -1,6 +1,6 @@
 library(haven)
 library(here)
-library(ggsflabel)
+library(ggrepel)
 library(rnaturalearth)
 library(sf)
 library(tidyverse)
@@ -33,9 +33,9 @@ ec = ne_countries(scale = "large",
 countries = ne_countries(returnclass = 'sf') %>% 
   st_transform(crs = crs)
 
-# tz = ne_download(scale = 10, category = 'cultural',
-#                  destdir = here('data/naturalearth'),
-#                  type = 'time_zones', returnclass = 'sf')
+tz = ne_download(scale = 10, category = 'cultural',
+                 destdir = here('data/naturalearth'),
+                 type = 'time_zones', returnclass = 'sf')
 tz_pop = tz %>% 
   select(objectid, time_zone, map_color8) %>% 
   mutate(rowid = row_number()) %>% 
