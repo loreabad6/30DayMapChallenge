@@ -13,5 +13,6 @@
   <img src="maps/day10.png" width="260" height="260" /> 
   <img src="maps/day11.png" width="390" height="260" /> 
   <img src="maps/day12.png" width="240" height="260" /> 
-  <img src="maps/day13.png" width="360" height="260" /> 
+  <img src="maps/day13.png" width="300" height="260" /> 
+  <img src="maps/day14.png" width="240" height="260" /> 
 </p>
