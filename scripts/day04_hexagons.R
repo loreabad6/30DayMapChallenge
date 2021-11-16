@@ -69,7 +69,6 @@ ggplot() +
     data = rivers_lines, alpha = 0.6,
     color = "white", size = 0.3
   ) +
-  # scale_fill_brewer(
   scico::scale_fill_scico_d(
     "Distance to the nearest waterfall (km)",
     palette = "davos", direction = 1, end = 0.8,
@@ -85,7 +84,7 @@ ggplot() +
   ) +
   labs(
     title = "Cascadas de\nMorona Santiago",
-    caption = "#30DayMapChallenge | Day 4: Hexagons | Data: OpenStreetMap | Created by @loreabad6"
+    caption = "#30DayMapChallenge | Day 4: Hexagons | Data: (c) OpenStreetMap contributors | Created by @loreabad6"
   ) +
   theme_void() +
   theme( 
