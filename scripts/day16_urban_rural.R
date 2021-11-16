@@ -10,10 +10,10 @@ ec = ne_countries(scale = "large",
                   returnclass = "sf")
 
 bbox_gal = c(
-  xmin = -91.7,
-  xmax = -89.2,
-  ymin = -1.4,
-  ymax = 0.3
+  xmin = -93.22,
+  xmax = -87.638,
+  ymin = -1.58,
+  ymax = 1.77
 ) %>% st_bbox()
 
 bbox_cont = ec %>% 
@@ -93,7 +93,8 @@ main = ggplot() +
       hjust = 0.5,  margin = margin(t = -20, b = 10),
       size = 9
     ),
-    legend.text = element_text(size = 13),
+    legend.title = element_text(size = 13),
+    legend.text = element_text(size = 12),
     legend.position = c(0.4, 0.90),
     legend.direction = "horizontal", 
     panel.background = element_rect(fill = "#F0ea9f", color = NA),
@@ -111,8 +112,10 @@ inset = ggplot() +
     xlim = c(bbox_gal["xmin"], bbox_gal["xmax"]),
     ylim = c(bbox_gal["ymin"], bbox_gal["ymax"]),
   ) +
-  theme_void() 
-  
+  theme_void()+
+  theme(
+    panel.background = element_rect(fill = "#ede589", color = NA)
+  )
 
 main +
   annotation_custom(
