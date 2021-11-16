@@ -127,6 +127,4 @@ main +
   )
 
 ggsave(filename = "maps/day16.png",
-       height = 20, width = 20, units = "cm")
-
-knitr::plot_crop("maps/day16.png")
+       height = 20, width = 18.6, units = "cm")
