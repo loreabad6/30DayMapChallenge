@@ -7,7 +7,6 @@ library(osmdata)
 dem_1 = read_stars("data/dem/DEM_30_0000768000_0009792000.asc")
 dem_2 = read_stars("data/dem/DEM_30_0000768000_0009816000.asc")
 dem = st_mosaic(dem_1, dem_2)
-mapview::mapview(dem |> st_set_crs(24817))
 
 extent = extent(772980, 789140,-192880,-175120)
 
