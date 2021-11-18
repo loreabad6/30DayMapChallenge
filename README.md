@@ -18,4 +18,5 @@
   <img src="maps/day15.jpg" width="260" height="260" /> 
   <img src="maps/day16.png" width="240" height="260" /> 
   <img src="maps/day17.png" width="240" height="260" /> 
+  <img src="maps/day18.png" width="290" height="260" /> 
 </p>
