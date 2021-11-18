@@ -96,7 +96,7 @@ ggplot() +
   ) +
   theme_void() +
   labs(
-    caption = "#30DayMapChallenge | Day 17: Land  Data SNI, SavGIS | Created by @loreabad6"
+    caption = "#30DayMapChallenge | Day 17: Land | Data SNI, SavGIS | Created by @loreabad6"
   ) +
   theme(
     plot.caption = element_text(

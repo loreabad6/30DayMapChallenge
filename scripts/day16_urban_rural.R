@@ -81,7 +81,7 @@ main = ggplot() +
     )
   ) +
   labs(
-    caption = "#30DayMapChallenge | Day 16: Urban/Rural | Data: (c) OpenStreetMap contributors | Created by @loreabad6"
+    caption = "#30DayMapChallenge | Day 16: Urban/Rural | Data: © OpenStreetMap contributors | Created by @loreabad6"
   ) +
   coord_sf(
     xlim = c(bbox_cont["xmin"], bbox_cont["xmax"]),
