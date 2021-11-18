@@ -12,11 +12,11 @@
   <img src="maps/day09.png" width="130" height="260" /> 
   <img src="maps/day10.png" width="260" height="260" /> 
   <img src="maps/day11.png" width="390" height="260" /> 
-  <img src="maps/day12.png" width="220" height="260" /> 
-  <img src="maps/day13.png" width="340" height="260" /> 
-  <img src="maps/day14.png" width="220" height="260" /> 
-  <img src="maps/day15.jpg" width="260" height="260" /> 
-  <img src="maps/day16.png" width="240" height="260" /> 
+  <img src="maps/day12.png" width="290" height="340" /> 
+  <img src="maps/day13.png" width="490" height="340" /> 
+  <img src="maps/day14.png" width="240" height="280" /> 
+  <img src="maps/day15.jpg" width="280" height="280" /> 
+  <img src="maps/day16.png" width="260" height="280" /> 
   <img src="maps/day17.png" width="240" height="260" /> 
   <img src="maps/day18.png" width="300" height="260" /> 
 </p>
