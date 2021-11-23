@@ -72,5 +72,3 @@ Sentinel-1 (2016), R2018A. European Commission, Joint Research Centre (JRC) doi:
 
 ggsave(filename = "maps/day23.png",
        height = 25, width = 18, units = "cm")
-
-knitr::plot_crop("maps/day23.png")
