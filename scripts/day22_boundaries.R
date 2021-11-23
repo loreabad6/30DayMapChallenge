@@ -19,13 +19,12 @@ tm = tm_shape(prov) +
     legend.show = TRUE, style = "cont",
     legend.is.portrait = FALSE,
     title = "",
-    # labels = c("< 3 800", "6 600", "", "", "> 16 900")
     legend.format = list(suffix = " km²")
   ) +
   tm_facets("name", ncol = 24) +
   tm_layout(
     panel.show = FALSE, 
-    title =  "#30DayMapChallenge | Day 22: Borders | Data: INEC | Created by @loreabad6",
+    title =  "#30DayMapChallenge | Day 22: Boundaries | Data: INEC | Created by @loreabad6",
     title.size = 0.5,
     title.position = c("right", "top"),
     legend.outside.position = "top",
