@@ -23,6 +23,6 @@
   <img src="maps/day20.gif" width="300" height="300" /> 
   <img src="maps/day21.png" width="300" height="300" /> 
   <img src="maps/day22.png" width="780" height="110" /> 
-  <img src="maps/day23.png" width="260" height="365" /> 
-  <img src="maps/day24.png" width="510" height="365" /> 
+  <img src="maps/day23.png" width="260" height="360" /> 
+  <img src="maps/day24.png" width="520" height="360" /> 
 </p>
