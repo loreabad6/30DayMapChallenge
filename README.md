@@ -24,5 +24,5 @@
   <img src="maps/day21.png" width="300" height="300" /> 
   <img src="maps/day22.png" width="780" height="110" /> 
   <img src="maps/day23.png" width="260" height="365" /> 
-  <img src="maps/day24.png" width="518" height="365" /> 
+  <img src="maps/day24.png" width="510" height="365" /> 
 </p>
