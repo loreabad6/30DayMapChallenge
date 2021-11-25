@@ -76,7 +76,7 @@ g = ggplot() +
   annotate(
     "text",
     x = -1500000, y = -900000, color = "#6b452b",
-    family = "Homemade Apple", size = 5,
+    family = "Homemade Apple", size = 6,
     label = "Alexander von Humboldt\ntravels to the Americas\n1799-1804"
   ) +
   scale_fill_pomological() +
