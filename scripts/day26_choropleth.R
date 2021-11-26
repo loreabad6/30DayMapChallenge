@@ -22,7 +22,7 @@ bbox_cont = ec %>%
   st_cast("POLYGON") %>% 
   mutate(area = st_area(geometry)) %>% 
   top_n(1) %>% 
-  st_buffer(100000) %>% 
+  st_buffer(10000) %>% 
   st_bbox()
 
 popdens = read_xlsx(
@@ -91,12 +91,12 @@ main = ggplot() +
   ) +
   labs(
     title = "Densidad poblacional y porcentaje de pobreza por parroquia",
-    caption = "#30DayMapChallenge | Day 26: Choropleth | Data: INEC - Censo de Población y Vivienca 2010 | Created by @loreabad6"
+    caption = "#30DayMapChallenge | Day 26: Choropleth | Data: INEC - Censo de Población y Vivienda 2010 | Created by @loreabad6"
   ) +
   theme(
     text = element_text(family = 'Leelawadee'),
     plot.title = element_text(size = 15, hjust = 0.5),
-    plot.caption = element_text(size = 8)
+    plot.caption = element_text(size = 9, hjust = 0.5)
   )
 
 inset = ggplot() +
@@ -124,7 +124,7 @@ map = main +
   annotation_custom(
     grob = ggplotGrob(inset), 
     ymin = bbox_cont['ymin'],
-    ymax = -2,
+    ymax = -3,
     xmin = -78.5,
     xmax = bbox_cont['xmax']
   )
@@ -132,34 +132,38 @@ map = main +
 legend = bi_legend(
   pal = "DkViolet",
   dim = 3,
-  xlab = "Higher Population Density",
-  ylab = "Higher Poverty",
+  xlab = "Mayor\ndensidad\npoblacional",
+  ylab = "Mayor\nporcentaje\nprobreza",
   size = 7
 ) +
   theme(
+    axis.title.y = element_text(margin = margin(r = -7)),
+    axis.title.x = element_text(margin = margin(t = 10)),
     plot.background = element_rect(fill = "transparent", color = NA),
     panel.background = element_rect(fill = "transparent", color = NA)
   )
 
 # Open PNG device
-png(filename = "maps/day26.png", width = 20, height = 14, units = "cm", res = 300)
-pushViewport(viewport(layout = grid.layout(nrow = 3, ncol = 5)))
+png(filename = "maps/day26.png",
+    width = 20, height = 17, units = "cm", res = 300)
+pushViewport(viewport(layout = grid.layout(nrow = 10, ncol = 14)))
 # Arrange the plots
 print(
   map,
   vp = grid::viewport(
-    layout.pos.row = 1:3,
-    layout.pos.col = 2:5,
-    width = unit(10, "cm"),
-    height = unit(10, "cm"))
+    layout.pos.row = 1:10,
+    layout.pos.col = 3:14,
+    width = unit(14, "cm"),
+    height = unit(14, "cm"))
 )
 print(
   legend,
   vp = grid::viewport(
-    layout.pos.row = 1,
-    layout.pos.col = 1,
-    width = unit(5, "cm"),
-    height = unit(5, "cm"),
+    layout.pos.row = 1:2,
+    layout.pos.col = 1:4,
+    width = unit(7, "cm"),
+    height = unit(7, "cm"),
     angle = 315)
 )
 dev.off()
+
