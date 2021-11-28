@@ -28,5 +28,6 @@
   <img src="maps/day25.png" width="360" height="360" /> 
   <img src="maps/day26.png" width="420" height="360" /> 
   <img src="maps/day27.png" width="785" height="316" /> 
-  <img src="maps/day28.png" width="390" height="390" /> 
+  <img src="maps/day28.png" width="300" height="300" /> 
+  <img src="maps/day29.png" width="482" height="300" /> 
 </p>
