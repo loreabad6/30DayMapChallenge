@@ -47,7 +47,7 @@ g = ggplot() +
     plot.caption = element_text(color = "white", hjust = 0.7, size = 20)
   ) +
   labs(
-    caption = "#30DayMapChallenge | Day 28: Earth is not round\nData: Natural Earth | Created by @loreabad6"
+    caption = "#30DayMapChallenge | Day 28: Earth is not Flat\nData: Natural Earth | Created by @loreabad6"
   ) 
 
 # Open PNG device
@@ -61,7 +61,7 @@ print(
     clip = "off",
     width = unit(1, "npc"),
     height = unit(1, "npc"),
-    angle = 23.5)
+    angle = 23.44)
 )
 dev.off()
 
