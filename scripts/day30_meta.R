@@ -1,7 +1,10 @@
 library(renv)
 library(tidyverse)
 pkgs = dependencies()
+`%notin%` = Negate(`%in%`)
+
 pkgs_sum = pkgs |> 
+  filter(Package %notin% c("renv", "tidyverse")) |> 
   count(Package) |> 
   mutate(type = case_when(
     str_starts(Package, "tidy") ~ "Wrangle",
@@ -45,17 +48,25 @@ pkgs_sum = pkgs |>
     str_starts(Package, "rcarto") ~ "Palettes",
     str_starts(Package, "random") ~ "Palettes",
     str_starts(Package, "Map") ~ "Palettes"
-  ))
+  )) |> 
+  mutate(type = fct_relevel(
+    type,
+    "Read/Get", "Spatial", "Wrangle", "Plot", "Interactive", "Palettes"
+    )
+  )
 
 ggplot(pkgs_sum) +
   geom_col(
-    aes(n, fct_reorder(Package, n, min), fill = n),
+    aes(n, fct_reorder(Package, n, min), fill = type),
     show.legend = FALSE
   ) +
-  scale_fill_viridis_c() +
+  scale_fill_viridis_d() +
   labs(x = "Times used", y = "Package") +
-  facet_wrap(~type, scales = "free_y") +
+  facet_wrap(~type, scales = "free_y", ncol = 3) +
   theme_minimal() +
-  theme(plot.background = element_rect(fill = "white", color = NA))
+  theme(
+    text = element_text(size = 15),
+    plot.background = element_rect(fill = "white", color = NA)
+  )
 
 ggsave("figs/day30.png", width = 25, height = 15, units = "cm")
