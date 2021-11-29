@@ -4,7 +4,9 @@ library(geodata)
 library(here)
 library(stars)
 library(rnaturalearth)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(purrr)
 extrafont::loadfonts(device = "win")
 
 ec = ne_countries(scale = "medium",

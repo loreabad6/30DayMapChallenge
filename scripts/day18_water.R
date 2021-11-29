@@ -1,6 +1,7 @@
 library(osmdata)
 library(sf)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(ggfx)
 library(scico)
 library(terra)

@@ -3,7 +3,8 @@
 
 # Thinkquest historical boundaries 1815
 #https://web.archive.org/web/20080328104539/http://library.thinkquest.org:80/C006628/download.html
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(sf)
 library(ggpomological)
 library(ggimage)

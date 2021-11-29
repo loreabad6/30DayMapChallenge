@@ -1,4 +1,7 @@
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(tidyr)
 library(readxl)
 library(sf)
 library(biscale)

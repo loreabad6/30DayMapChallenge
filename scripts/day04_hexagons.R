@@ -1,6 +1,7 @@
 library(sf)
 library(osmdata)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(ggfx)
 extrafont::loadfonts(device = "win")
 

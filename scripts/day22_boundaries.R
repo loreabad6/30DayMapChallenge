@@ -1,4 +1,5 @@
-library(tidyverse)
+library(dplyr)
+library(forcats)
 library(sf)
 library(tmap)
 

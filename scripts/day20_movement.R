@@ -9,7 +9,9 @@
 #' 
 #' https://www.gbif.org/dataset/2144434e-9e31-4558-8616-a2a301d02dc8#description
 
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(readr)
 library(sf)
 library(gganimate)
 library(rnaturalearth)

@@ -1,4 +1,4 @@
-library(tidyverse)
+library(ggplot2)
 library(sf)
 library(rnaturalearth)
 

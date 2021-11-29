@@ -1,5 +1,5 @@
 library(roughsf)
-library(tidyverse)
+library(dplyr)
 library(randomcoloR)
 library(sf)
 extrafont::loadfonts(device = "win")

@@ -1,6 +1,6 @@
 library(sf)
 library(rnaturalearth)
-library(tidyverse)
+library(dplyr)
 library(tmap)
 library(here)
 extrafont::loadfonts(device = "win")

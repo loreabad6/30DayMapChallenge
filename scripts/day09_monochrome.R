@@ -2,7 +2,8 @@ library(osmdata)
 library(sf)
 library(sfnetworks)
 library(tidygraph)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 
 bus = opq("Quito, Ecuador") %>% 
   add_osm_feature(key = "route",

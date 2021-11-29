@@ -6,7 +6,10 @@
 #' First release of 2019 (2019.0). Zenodo. 
 #' https://doi.org/10.5281/zenodo.3376300
 
-library(tidyverse)
+library(ggplot2)
+library(purrr)
+library(readr)
+library(tidyr)
 library(sf)
 library(rnaturalearth)
 library(ggfx)

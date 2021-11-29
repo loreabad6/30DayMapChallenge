@@ -1,5 +1,7 @@
 library(sf)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
 library(stars)
 library(raster)
 library(terra)
@@ -42,7 +44,7 @@ bbox = st_bbox(
 lulc_bbox = st_crop(nodesc, bbox)
 
 usos = lulc_bbox %>% 
-  dplyr::select(USO) %>% 
+  select(USO) %>% 
   separate(USO, sep = "[[:punct:]]+",
            into = c('cod1', 'cod2'), remove = FALSE) %>% 
   left_join(single_codes) %>% 

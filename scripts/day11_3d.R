@@ -1,7 +1,7 @@
 library(raster)
 library(rayshader)
 library(stars)
-library(tidyverse)
+library(dplyr)
 library(osmdata)
 
 dem_1 = read_stars("data/dem/DEM_30_0000768000_0009792000.asc")

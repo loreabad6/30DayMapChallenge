@@ -1,6 +1,7 @@
 library(sf)
 library(here)
-library(tidyverse)
+library(ggplot2)
+library(dplyr)
 library(ggfx)
 library(rcartocolor)
 library(rnaturalearth)

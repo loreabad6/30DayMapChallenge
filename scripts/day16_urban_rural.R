@@ -2,7 +2,8 @@ library(osmextract)
 library(sf)
 library(here)
 library(rnaturalearth)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 extrafont::loadfonts(device = "win")
 
 ec = ne_countries(scale = "large",

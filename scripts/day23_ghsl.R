@@ -1,6 +1,7 @@
 library(stars)
 library(osmdata)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(ggfx)
 library(ggtext)
 extrafont::loadfonts(device = "win")
