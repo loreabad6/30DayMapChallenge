@@ -26,7 +26,7 @@
   <a href="https://raw.githubusercontent.com/loreabad6/30DayMapChallenge/main/maps/day23.png"><img src="maps/day23.png" width="260" height="362" /><a /> 
   <a href="https://raw.githubusercontent.com/loreabad6/30DayMapChallenge/main/maps/day24.png"><img src="maps/day24.png" width="520" height="360" /><a /> 
   <a href="https://loreabad6.github.io/30DayMapChallenge/web/day25.html"><img src="maps/day25.png" width="360" height="360" /><a /> 
-  <a href="https://raw.githubusercontent.com/loreabad6/30DayMapChallenge/main/maps/day26.png"><img src="maps/day26_revised.png" width="420" height="360" /><a /> 
+  <a href="https://raw.githubusercontent.com/loreabad6/30DayMapChallenge/main/maps/day26_revised.png"><img src="maps/day26_revised.png" width="420" height="360" /><a /> 
   <a href="https://raw.githubusercontent.com/loreabad6/30DayMapChallenge/main/maps/day27.png"><img src="maps/day27.png" width="785" height="316" /><a /> 
   <a href="https://raw.githubusercontent.com/loreabad6/30DayMapChallenge/main/maps/day28.png"><img src="maps/day28.png" width="300" height="300" /><a /> 
   <a href="https://raw.githubusercontent.com/loreabad6/30DayMapChallenge/main/maps/day29.png"><img src="maps/day29.png" width="482" height="300" /><a /> 
