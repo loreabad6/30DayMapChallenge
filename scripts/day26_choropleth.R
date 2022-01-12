@@ -34,10 +34,24 @@ popdens = read_xlsx(
 ) |> 
   select(
     code = `Código`,
+    provincia = `Nombre de provincia`,
+    canton = `Nombre de canton`,
+    parroquia = `Nombre de parroquia`,
     pop = `Población`,
     popdens = `Densidad Poblacional`,
     area = `Superficie de la parroquia (km2)`
-  ) 
+  ) |>
+  mutate(
+    parroquia = str_trim(
+      str_replace(
+        str_to_lower(parroquia),
+        "\\(.*",
+        ""
+      )),
+    canton = str_to_lower(canton),
+    provincia = str_to_lower(provincia)
+  ) |>
+  drop_na()
 
 pob = read_xls(
   "data/inec/CPV2010/32_NBI_POBLA_PROV_CANT_PARRO_AREA.xls",
@@ -49,21 +63,61 @@ pob_clean = pob |>
   select(canton = Canton, parroquia = `Codigo de parroquia`, poorperc = `...9`) |>
   distinct() |>
   mutate(
-    parroquia = str_replace(str_to_lower(parroquia), " \\s*\\([^\\)]+\\)", ""),
+    parroquia = str_trim(
+      str_replace(
+      str_to_lower(parroquia),
+      "\\(.*",
+      ""
+    )),
     canton = str_to_lower(canton)
+  ) |>
+  mutate(
+    parroquia = case_when(
+      canton == "el piedrero" ~ "el piedrero",
+      canton == "manga del cura" ~ "manga del cura",
+      TRUE ~ parroquia
+    )
   )
 
 par = read_sf("data/humdata/ecu_adm_inec_20190724_shp/ecu_admbnda_adm3_inec_20190724.shp")
 
-datasf = par |> 
-  select(parroquia = ADM3_ES, parcode = ADM3_PCODE, canton = ADM2_ES) |> 
+par_clean = par |> 
+  select(parcode = ADM3_PCODE, parroquia = ADM3_ES, canton = ADM2_ES) |> 
   mutate(parcode = str_remove(parcode, "EC")) |> 
   mutate(
-    parroquia = str_replace(str_to_lower(parroquia), " \\s*\\([^\\)]+\\)", ""),
+    parroquia = str_trim(
+      str_replace(
+        str_to_lower(parroquia),
+        "\\(.*",
+        ""
+      )),
     canton = str_to_lower(canton)
-  ) |> 
-  left_join(popdens, by = c("parcode" = "code")) |> 
-  left_join(pob_clean) |> 
+  )
+
+datasf =  par_clean |> 
+  left_join(popdens, by = c("parcode" = "code")) |>
+  mutate(
+    parroquia = case_when(
+      !is.na(parroquia.y) ~ parroquia.y,
+      TRUE ~ parroquia.x
+    ),
+    canton = case_when(
+      !is.na(canton.y) ~ canton.y,
+      TRUE ~ canton.x
+    )
+  ) |>
+  mutate(
+    canton = case_when(
+      canton == "santo domingo de los tsachilas" ~ "santo domingo",
+      canton == "san jose de chimbo" ~ "chimbo",
+      TRUE ~ canton
+    )
+  ) |>
+  select(parcode, provincia,
+         canton, parroquia,
+         pop, popdens, area) |>
+  stringdist_join(pob_clean, mode = "left",
+                  by = c("canton", "parroquia"), max_dist = 2) |> 
   drop_na(pop) |> 
   mutate(poorperc = as.numeric(poorperc)) |> 
   st_as_sf()
@@ -147,7 +201,7 @@ legend = bi_legend(
   )
 
 # Open PNG device
-png(filename = "maps/day26.png",
+png(filename = "maps/day26_revised.png",
     width = 20, height = 17, units = "cm", res = 300)
 pushViewport(viewport(layout = grid.layout(nrow = 10, ncol = 14)))
 # Arrange the plots
