@@ -7,6 +7,7 @@ library(sf)
 library(biscale)
 library(grid)
 library(rnaturalearth)
+library(fuzzyjoin)
 extrafont::loadfonts(device = "win")
 
 ## For bbox 

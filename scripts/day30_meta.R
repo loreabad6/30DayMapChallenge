@@ -8,6 +8,7 @@ pkgs_sum = pkgs |>
   count(Package) |> 
   mutate(type = case_when(
     str_starts(Package, "tidy") ~ "Wrangle",
+    str_starts(Package, "fuzzy") ~ "Wrangle",
     str_starts(Package, "forcats") ~ "Wrangle",
     str_starts(Package, "dplyr") ~ "Wrangle",
     str_starts(Package, "string") ~ "Wrangle",
